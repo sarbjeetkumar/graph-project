@@ -46,6 +46,44 @@ and which enemy is that refrence to the image for eg - enemy1.png
     </body>
     
    To show how many enemys i have killed so far and if your game over then restart button to restart the game .
+   
+   ####For selection of enemys.
+   
+   var enemiesTypes = {
+		1:{
+			speed:3,
+			W: 38,   //height
+		    H: 55,    //width
+            //how many hits it will take to die 
+		    health: 1,
+		    score: 1, //how much score you get after killing this enemy
+		    className: 'enemy1'   
+		},
+		2:{
+			speed:5,
+			W: 50,
+		    H: 41,
+		    health: 1,
+		    score: 2,
+		    className: 'enemy2'
+		},
+		3:{
+			speed:5,
+			W: 53,
+		    H: 43,
+		    health: 2,
+		    score: 3,
+		    className: 'enemy3'
+		},
+		4:{
+			speed:7,
+			W: 55,
+		    H: 35,
+		    health: 1,
+		    score: 4,
+		    className: 'enemy4'
+
+This is for selection of enemys randomly and how they are defined and which speed they come and health means how many fires they will take to die and how much score they give .
 
 
 
