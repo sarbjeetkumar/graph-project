@@ -49,7 +49,7 @@ and which enemy is that refrence to the image for eg - enemy1.png
    
    ####For selection of enemys.
    
-   var enemiesTypes = {
+   	var enemiesTypes = {
 		1:{
 			speed:3,
 			W: 38,   //height
