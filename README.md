@@ -5,7 +5,7 @@ This sky wars game is based on old sky ship game where you have to save your shi
 
 ####First i defined all my enemys in my css.
 
- /*Declaring the images*/
+ 
             /*Creating all the enemy's*/
             .enemy1{
                 width: 38px;
@@ -27,5 +27,5 @@ This sky wars game is based on old sky ship game where you have to save your shi
                 height: 40px;
                 background-image: url(enemy4.png);
 
-Giving myenemys width and height 
+Giving my enemys width and height 
 and which enemy is that refrence to the image for eg - enemy1.png
