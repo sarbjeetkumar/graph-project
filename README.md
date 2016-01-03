@@ -35,11 +35,11 @@ and which enemy is that refrence to the image for eg - enemy1.png
  <body>
         <div id="control">
 		<div class="info">
-              <!--for score and how many hits -->
+             
 			<div>hits:<span id="hits">0</span></div>
 			<div>score:<span id="score">0</span></div>
 		</div>
-          <!--For button to restart -->
+          
 		<button id="restart">Restart</button>
 	</div>
 	<div id="game-wrap">
