@@ -168,4 +168,264 @@
         
     </body>
     
+    <script type="text/javascript">
+	
+    
+    //link of code -- http://www.paulirish.com/2011/requestanimationframe-for-smart-animating/
+	if ( !window.requestAnimationFrame ) {
+
+	    window.requestAnimationFrame = ( function() {
+
+	        return window.webkitRequestAnimationFrame ||
+	        	window.mozRequestAnimationFrame ||
+	        	window.oRequestAnimationFrame ||
+	        	window.msRequestAnimationFrame ||
+	        	function(callback) {
+
+	            	window.setTimeout( callback, 1000 / 60 );
+
+	        	};
+
+	    } )();
+
+	}
+        
+        //reset info for game and all info starts from new .
+	document.getElementById('restart').onclick = function () {
+		bgMargin = 0;
+		statistic.hits = 0;
+		statistic.score = 0;
+		statistic.status =  "Game Over";
+		statisticEl.innerHTML = '';
+		statisticEl.style.display = 'none';
+		hitsEl.innerHTML = '0';
+		scoreEl.innerHTML = '0';
+		ship.style.display = 'block';
+        //ref http://www.w3schools.com/cssref/pr_padding.asp
+        //http://www.w3schools.com/cssref/pr_padding.asp
+		ship.style.top = padding+'px';
+		shipY = padding;
+		fireBalls = [];
+		enemies = [];
+		level = 1;
+		enemiesDestroy = 0;
+		nextLevel = 10;
+        //for enemy 
+		var oldEnemy = document.querySelectorAll('.enemy');
+		for (var i = 0; i < oldEnemy.length; i++) {
+			game.removeChild(oldEnemy[i]);
+		};
+        //for fire 
+		var oldFire = document.querySelectorAll('.fire');
+		for (var i = 0; i < oldFire.length; i++) {
+			game.removeChild(oldFire[i]);
+		};
+
+		if(!isPlay){
+			isPlay = true;
+			loop();
+			startEnemy = true;
+			createEnemyLoop();
+		}
+	};
+
+	var isPlay = true; //settingtotrue
+
+	var game = document.getElementById('game-wrap');
+	var bg = document.getElementById('bg');
+	var ship = document.getElementById('ship');
+	var hitsEl = document.getElementById('hits');
+	var scoreEl = document.getElementById('score');
+	var fireBalls = [];
+	var statisticEl = document.getElementById('statistic');
+    
+        //at begin score is zero and fires is zero 
+	var statistic = {
+		hits:0,
+		score: 0,
+		status: "Game Over"
+	};
+        
+    var flySpeed = 3;   //speed of enemy
+	var bgMargin = 0;     
+	var btnMoveShipPressed = false;
+	var padding = 5;       //margin
+	var shipDirection;
+	var fireBtnPressed = false;
+	var enemyTimer;
+	var enemies = [];      //creating the empty array
+	var gameH = 600;
+	var gameW = 900;
+    //ref --http://www.w3schools.com/cssref/pr_padding.asp
+	var shipY = padding;   
+	var shipH = 55;
+	var shipW = 80;
+	var maxShipY = gameH - padding - shipH;
+	var minShipY = padding;
+	var fired = false;
+	var level = 1;
+	var enemiesDestroy = 0;
+	var nextLevel = 10;        //kill 10enemy for next levl.
+	var startEnemy = false;    //set to false first
+        
+    //enemy types 
+    //for selectiong random enemys 
+    	var enemiesTypes = {
+		1:{
+			speed:3,
+			W: 38,   //height
+		    H: 55,    //width
+            //how many hits it will take to die 
+		    health: 1,
+		    score: 1, //how much score you get after killing this enemy
+		    className: 'enemy1'   
+		},
+		2:{
+			speed:5,
+			W: 50,
+		    H: 41,
+		    health: 1,
+		    score: 2,
+		    className: 'enemy2'
+		},
+		3:{
+			speed:5,
+			W: 53,
+		    H: 43,
+		    health: 2,
+		    score: 3,
+		    className: 'enemy3'
+		},
+		4:{
+			speed:7,
+			W: 55,
+		    H: 35,
+		    health: 1,
+		    score: 4,
+		    className: 'enemy4'
+		},
+		5:{
+			speed:4,
+			W: 75,
+		    H: 45,
+		    health: 4,
+		    score: 5,
+		    className: 'enemy5'
+		},
+		6:{
+			speed:7,
+			W: 69,
+		    H: 64,
+		    health: 4,
+		    score: 6,
+		    className: 'enemy6'
+		},
+		7:{
+			speed:5,
+			W: 95,
+		    H: 61,
+		    health: 7,
+		    score: 7,
+		    className: 'enemy7'
+		},
+		8:{
+			speed:3,
+			W: 91,
+		    H: 66,
+		    health: 7,
+		    score: 8,
+		    className: 'enemy8'
+		},
+		9:{
+			speed:1,
+			W: 160,
+		    H: 115,
+		    health: 20,
+		    score: 9,
+		    className: 'enemy9'
+		}
+	}
+        
+    //getting thee random number
+    function randomInteger(min, max) {
+	    var rand = min - 0.5 + Math.random() * (max - min + 1);
+	    rand = Math.round(rand);
+	    return rand;
+	}
+        
+    //get which enemy type 
+    function getEnemyType () {
+
+		var number = randomInteger(1,level*100);  //passing tothe method .
+		if(number>1200) return 9; //if greter then 1200 returnn enemy 9 and so on at last retun 1 .
+		if(number>1050) return 8;
+		if(number>900) return 7;
+		if(number>750) return 6;
+		if(number>650) return 5;
+		if(number>400) return 4;
+		if(number>200) return 3;
+		if(number>100) return 2;
+		return 1;
+	}
+
+    
+    	function Enemy () {
+		var type = getEnemyType();
+		var enemyOp = enemiesTypes[type];
+            //ref --- http://backbonejs.org/#View-el
+		this.el = document.createElement('div');
+		this.el.className = 'enemy ' + enemyOp.className;
+		this.X = gameW;
+		this.Y = Math.floor(randomInteger(padding + 27, 600-27-enemyOp.H));
+		this.speed = enemyOp.speed;
+		this.W = enemyOp.W;
+		this.H = enemyOp.H;
+		this.health = enemyOp.health;
+		this.score = enemyOp.score;
+		this.el.style.left = this.X+'px';
+		this.el.style.top = this.Y+'px';
+	   }
+
+	function createEnemy () {
+		var enemy = new Enemy();
+		game.appendChild(enemy.el);
+		enemies.push(enemy);
+	}
+
+	function createEnemyLoop() {
+		if(startEnemy){
+			createEnemy();
+			enemyTimer = setTimeout(function () {
+				createEnemyLoop();
+			}, 1000);
+		}//if ends here 
+	}
+    
+    function moveEnemies () {
+		for (var i = 0, l = enemies.length; i < l; i++) {
+			 if(enemies[i])
+                moveEnemy(enemies[i], i);
+		};
+	}
+        
+    function moveEnemy(enemy index){
+    
+        
+    }
+        
+        //function start game 
+    	function startGame () {
+		isPlay = true;    //set isPlay to true
+		startEnemy = true;    //start enemy = true
+		//requestAnimationFrame();
+	   }
+        //call the function to start the game 
+	   startGame();
+        
+        
+        
+    
+
+
+    </script>
 </html>
