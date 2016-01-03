@@ -29,3 +29,32 @@ This sky wars game is based on old sky ship game where you have to save your shi
 
 Giving my enemys width and height 
 and which enemy is that refrence to the image for eg - enemy1.png
+
+####Defining the button and score and how many enemys are killed 
+
+ <body>
+        <div id="control">
+		<div class="info">
+              <!--for score and how many hits -->
+			<div>hits:<span id="hits">0</span></div>
+			<div>score:<span id="score">0</span></div>
+		</div>
+          <!--For button to restart -->
+		<button id="restart">Restart</button>
+	</div>
+	<div id="game-wrap">
+		<div id="ship"></div>
+		<div id="bg">
+			<div></div>
+			<div></div>
+		</div>
+		<div id="statistic"></div>
+	</div>
+        
+    </body>
+    
+    
+
+
+
+
