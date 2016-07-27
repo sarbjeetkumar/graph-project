@@ -85,23 +85,8 @@ and which enemy is that refrence to the image for eg - enemy1.png
 
 This is for selection of enemys randomly and how they are defined and which speed they come and health means how many fires they will take to die and how much score they give .
 
-####Things Left 
 
-	function moveEnemy(enemy index){
-    	//move the enemys 
-	 //collision detecton 
-	 //game over if collided 
-        
-	 }
-    
-    //funtion for fire 
-    //key control 
-    //space bar for fire 
-    //up and down key for moving the ship .
-    //game loop function
-    
-This is the four function left for this game to complete .
-There is reference provided in the code from where i got the code.
+######There is reference provided in the code .
 
 
 
