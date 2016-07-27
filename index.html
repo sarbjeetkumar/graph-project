@@ -1,160 +1,150 @@
 <!DOCTYPE html>
 <html>
-    <head>
-    <title>Sky Wars</title>
-        <style type="text/css">
+<head>
+	<title>Game</title>
+	<style type="text/css">
         
-            #control{
-                width: 900px;
-                margin: 0 auto;
-            }
-            /*background so image stays at one place*/
-            #game-wrap{
-                width: 900px;
-                height: 600px;
-                overflow: hidden;
-                margin: 0 auto;
-                position: relative;     /*relative means everything displayed in one windows*/
-            }
-            /*Size of it */
-            #bg{
-                height: 600px;
-                width: 1800px;
-            }
-            /*background image display*/
-            /*displayed in div*/
-            #bg>div{
-                height: 600px;
-                width: 900px;
-                float: left;
-                background-image: url(bg1.jpg);
-            }
-            /*ship description*/
-            #ship{
-                position: absolute;
-                left: 10px;
-                top: 5px;
-                background-image: url(ship.png);
-                background-repeat: no-repeat;
-                height: 55px;
-                width: 80px;
-            } 
-            /*link from where i copy the code https://developer.mozilla.org/en/docs/Web/CSS/background-repeat */
-            /*https://www.w3.org/community/webed/wiki/CSS_absolute_and_fixed_positioning*/
-             .fire{
-                 position: absolute;
-                 width: 10px;
-                 height: 7px;
-                 background-image: #EBEBEB;
-                 top: 0;
-                 left: 0;
-                 border-radius: 50%;
-             }
-             .enemy{
-                 position: absolute;
-                 background-repeat: no-repeat;
-             }
-            /*Declaring the images*/
-            /*Creating all the enemy's*/
-            .enemy1{
-                width: 38px;
-                height: 55px;
-                background-image: url(enemy1.png);
-            }
-            .enemy2{
-                 width: 38px;
-                height: 55px;
-                background-image: url(enemy2.png);
-            }
-            .enemy3{
-                 width: 58px;
-                height: 50px;
-                background-image: url(enemy3.png);
-            }
-            .enemy4{
-                 width: 60px;
-                height: 40px;
-                background-image: url(enemy4.png);
-            }
-            .enemy5{
-                 width: 75px;
-                height: 50px;
-                background-image: url(enemy5.png);
-            }
-            .enemy6{
-                 width: 70px;
-                height: 55px;
-                background-image: url(enemy6.png);
-            }
-            .enemy7{
-                 width: 80px;
-                height: 60px;
-                background-image: url(enemy7.png);
-            }
-            .enemy8{
-                 width: 89px;
-                height: 65px;
-                background-image: url(enemy8.png);
-            }
-            .enemy9{
-                 width: 160px;
-                height: 115 px;
-                background-image: url(enemy9.png);
-            }
-            /*description for the fire ball*/
-            .boom{
-                width: 150px;
-                height: 35px;
-                position: absolute;
-                /* ref for this property http://www.w3schools.com/cssref/pr_pos_z-index.asp*/
-                z-index: 13;
-                background-image: url(boom.jpg);
-                background-size: 100%;
-            }
-                 /*Display the game score after finishing */
-             #statistic{
-                position: absolute;/*with thos property elemnt can plce anywhere in the page*/
-                background-color: #000;
-                opacity: 0.7;
-                z-index: 100;
-                padding: 150px 0 15px;
-                display: none;
-                top: 0;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                color: #fff;
-                text-align: center;
-             }
-              #statistic .content{
-                margin: 0 auto;
-                width: 250px;
-                color: #fff;
-                font-size: 20px;
-                text-align: center;
-              }
-             /*font size*/
-            #statistic .title{
-                font-size: 36px;
-                margin-bottom: 15px;
-            }
-            .info{
-                float: right;
-            }
-            .info>div{
-                display: inline-block;
-            }
-            
-        </style>
-    </head>
-    <body>
-        <div id="control">
+		#control{
+			width: 900px;
+			margin: 0 auto;
+		}
+        /* background  so image stays at one palce */ 
+		#game-wrap{
+			width: 900px;
+			height: 600px;
+			overflow: hidden;
+			margin: 0 auto;
+            /*relative means everything displayed in one windows */
+			position: relative;
+		}
+        /*Size*/
+		#bg{
+			height: 600px;
+			width: 1800px;
+		}
+        /*background image description*/
+        /*every thing is displayed in background div */
+		#bg>div{
+			height: 600px;
+			width: 900px;
+			float: left;
+			background-image: url(bg1.jpg);
+		}
+        /* */
+		#ship{
+			position: absolute;
+		    left: 10px;
+		    top: 5px;
+		    background-image: url(ship.png);
+		    background-repeat: no-repeat;
+		    height: 55px;
+		    width: 80px;
+		}
+		.fire{
+			position: absolute;
+		    width: 10px;
+		    height: 7px;
+		    background-color: #EBEBEB;
+		    top: 0;
+		    left: 0;
+		    border-radius: 50%;
+		}
+		.enemy{
+			position: absolute;
+			background-repeat: no-repeat;
+		}
+		.enemy1{
+		    width: 38px;
+		    height: 55px;
+		    background-image: url(enemy1.png);
+		}
+		.enemy2{
+		    width: 50px;
+		    height: 41px;
+		    background-image: url(enemy2.png);
+		}
+		.enemy3{
+		    width: 53px;
+		    height: 43px;
+		    background-image: url(enemy3.png);
+		}
+		.enemy4{
+		    width: 55px;
+		    height: 35px;
+		    background-image: url(enemy4.png);
+		}
+		.enemy5{
+		    width: 75px;
+		    height: 45px;
+		    background-image: url(enemy5.png);
+		}
+		.enemy6{
+		    width: 69px;
+		    height: 64px;
+		    background-image: url(enemy6.png);
+		}
+		.enemy7{
+		    width: 95px;
+		    height: 61px;
+		    background-image: url(enemy7.png);
+		}
+		.enemy8{
+		    width: 91px;
+		    height: 66px;
+		    background-image: url(enemy8.png);
+		}
+		.enemy9{
+		    width: 160px;
+		    height: 115px;
+		    background-image: url(enemy9.png);
+		}
+		.boom{
+			width: 30px;
+			height: 30px;
+			position: absolute;
+			z-index: 13;
+			background-image: url(boom.jpg);
+			background-size: 100%;
+		}
+        /*Display the game score after finishing */
+		#statistic{
+			position: absolute;
+		    background-color: #000;
+		    opacity: 0.7;
+		    z-index: 100;
+		    padding: 150px 0 15px;
+		    display: none;
+		    top: 0;
+		    bottom: 0;
+		    left: 0;
+		    right: 0;
+		    color: #fff;
+    		text-align: center;
+		}
+		#statistic .content{
+			margin: 0 auto;
+			width: 250px;
+			color: #fff;
+			font-size: 20px;
+			text-align: center;
+		}
+        /*font size*/
+		#statistic .title{
+			font-size: 36px;
+			margin-bottom: 15px;
+		}
+		.info{
+			float: right;
+		}
+		.info>div{display: inline-block;}
+	</style>
+</head>
+<body>
+	<div id="control">
 		<div class="info">
-              <!--for score and how many hits -->
 			<div>hits:<span id="hits">0</span></div>
 			<div>score:<span id="score">0</span></div>
 		</div>
-          <!--For button to restart -->
 		<button id="restart">Restart</button>
 	</div>
 	<div id="game-wrap">
@@ -165,10 +155,8 @@
 		</div>
 		<div id="statistic"></div>
 	</div>
-        
-    </body>
-    
-    <script type="text/javascript">
+</body>
+<script type="text/javascript">
 	
     
     //link of code -- http://www.paulirish.com/2011/requestanimationframe-for-smart-animating/
@@ -189,8 +177,8 @@
 	    } )();
 
 	}
-        
-        //reset info for game and all info starts from new .
+
+    //reset info for game and all info starts from new .
 	document.getElementById('restart').onclick = function () {
 		bgMargin = 0;
 		statistic.hits = 0;
@@ -201,8 +189,6 @@
 		hitsEl.innerHTML = '0';
 		scoreEl.innerHTML = '0';
 		ship.style.display = 'block';
-        //ref http://www.w3schools.com/cssref/pr_padding.asp
-        //http://www.w3schools.com/cssref/pr_padding.asp
 		ship.style.top = padding+'px';
 		shipY = padding;
 		fireBalls = [];
@@ -229,8 +215,7 @@
 		}
 	};
 
-	var isPlay = true; //settingtotrue
-
+	var isPlay = true;
 	var game = document.getElementById('game-wrap');
 	var bg = document.getElementById('bg');
 	var ship = document.getElementById('ship');
@@ -239,25 +224,23 @@
 	var fireBalls = [];
 	var statisticEl = document.getElementById('statistic');
     
-        //at begin score is zero and fires is zero 
 	var statistic = {
 		hits:0,
 		score: 0,
 		status: "Game Over"
 	};
-        
-    var flySpeed = 3;   //speed of enemy
-	var bgMargin = 0;     
+    
+	var flySpeed = 3;
+	var bgMargin = 0;
 	var btnMoveShipPressed = false;
-	var padding = 5;       //margin
+	var padding = 5;
 	var shipDirection;
 	var fireBtnPressed = false;
 	var enemyTimer;
-	var enemies = [];      //creating the empty array
+	var enemies = [];
 	var gameH = 600;
 	var gameW = 900;
-    //ref --http://www.w3schools.com/cssref/pr_padding.asp
-	var shipY = padding;   
+	var shipY = padding;
 	var shipH = 55;
 	var shipW = 80;
 	var maxShipY = gameH - padding - shipH;
@@ -265,20 +248,18 @@
 	var fired = false;
 	var level = 1;
 	var enemiesDestroy = 0;
-	var nextLevel = 10;        //kill 10enemy for next levl.
-	var startEnemy = false;    //set to false first
-        
-    //enemy types 
-    //for selectiong random enemys 
-    	var enemiesTypes = {
+	var nextLevel = 10;
+	var startEnemy = false;
+    
+	var enemiesTypes = {
 		1:{
 			speed:3,
-			W: 38,   //height
-		    H: 55,    //width
+			W: 38,
+		    H: 55,
             //how many hits it will take to die 
 		    health: 1,
-		    score: 1, //how much score you get after killing this enemy
-		    className: 'enemy1'   
+		    score: 1,
+		    className: 'enemy1'
 		},
 		2:{
 			speed:5,
@@ -345,19 +326,73 @@
 		    className: 'enemy9'
 		}
 	}
-        
-    //getting thee random number
-    function randomInteger(min, max) {
+
+    //keep the image fly 
+	function moveBg () {
+		var first = bg.firstElementChild;
+		bgMargin += flySpeed;
+		first.style.marginLeft = -bgMargin + 'px';
+		if(bgMargin>gameW){
+			bg.appendChild(first);
+			bgMargin = 0;
+			first.style.marginLeft = '0px';
+		}
+	}
+
+	function getCharCode(event) {
+		if (event.which == null) {
+			if (event.keyCode < 32) return null;
+		  	return event.keyCode;
+		}
+
+		if (event.which != 0) {
+		  	if (event.which < 32) return null;
+		  	return event.which;
+		}
+
+		return null;
+	}
+
+	function randomInteger(min, max) {
 	    var rand = min - 0.5 + Math.random() * (max - min + 1);
 	    rand = Math.round(rand);
 	    return rand;
 	}
-        
-    //get which enemy type 
-    function getEnemyType () {
 
-		var number = randomInteger(1,level*100);  //passing tothe method .
-		if(number>1200) return 9; //if greter then 1200 returnn enemy 9 and so on at last retun 1 .
+	function startAction (e) {
+		var charCode = getCharCode(e);
+
+		if(charCode == 40 || charCode == 38){
+			e.preventDefault(); 
+			if(btnMoveShipPressed) return false;
+			shipDirection = (charCode == 38) ? 'up' : 'down'; 
+			btnMoveShipPressed = true;
+		}
+
+		if(charCode == 32){
+			e.preventDefault();
+			if(fireBtnPressed) return false;
+			fireBtnPressed = true;
+		}
+	}
+
+	function stopAction (e) {
+		var charCode = getCharCode(e);
+		if(charCode == 40 || charCode == 38){
+			e.preventDefault();
+			btnMoveShipPressed = false;
+		}
+
+		if(charCode == 32){
+			e.preventDefault();
+			fireBtnPressed = false;
+		}
+	}
+
+	function getEnemyType () {
+
+		var number = randomInteger(1,level*100);
+		if(number>1200) return 9;
 		if(number>1050) return 8;
 		if(number>900) return 7;
 		if(number>750) return 6;
@@ -368,11 +403,9 @@
 		return 1;
 	}
 
-    
-    	function Enemy () {
+	function Enemy () {
 		var type = getEnemyType();
 		var enemyOp = enemiesTypes[type];
-            //ref --- http://backbonejs.org/#View-el
 		this.el = document.createElement('div');
 		this.el.className = 'enemy ' + enemyOp.className;
 		this.X = gameW;
@@ -384,7 +417,7 @@
 		this.score = enemyOp.score;
 		this.el.style.left = this.X+'px';
 		this.el.style.top = this.Y+'px';
-	   }
+	}
 
 	function createEnemy () {
 		var enemy = new Enemy();
@@ -398,42 +431,179 @@
 			enemyTimer = setTimeout(function () {
 				createEnemyLoop();
 			}, 1000);
-		}//if ends here 
+		}
 	}
-    
-    function moveEnemies () {
+
+	function moveShip () {
+		if(shipDirection == 'up'){
+			if(shipY <= minShipY) return false;
+			shipY -= 5;
+			ship.style.top = shipY + 'px';
+		}else{
+			if(shipY >= maxShipY) return false;
+			shipY += 5;
+			ship.style.top = shipY + 'px';
+		}
+	}
+
+	function moveEnemies () {
 		for (var i = 0, l = enemies.length; i < l; i++) {
 			 if(enemies[i])
                 moveEnemy(enemies[i], i);
 		};
 	}
-        
-    function moveEnemy(enemy index){
-    //move the enemys 
-    //collision detecton 
-    //game over if collided 
-        
-    }
-    
-    //funtion for fire 
-    //key control 
-    //space bar for fire 
-    //up and down key for moving the ship .
-    //game loop function
-        
-        //function start game 
-    	function startGame () {
-		isPlay = true;    //set isPlay to true
-		startEnemy = true;    //start enemy = true
-		//requestAnimationFrame();
-	   }
-        //call the function to start the game 
-	   startGame();
-        
-        
-        
-    
 
+	function removeEnemy (enemy, index) {
+		game.removeChild(enemy.el);
+		enemies.splice(index,1);
+	}
 
-    </script>
+	function moveEnemy (enemy, index) {
+		enemy.X -= enemy.speed;
+		enemy.el.style.left = enemy.X + 'px';
+		if(enemy.X + enemy.W <= 0) removeEnemy(enemy, index);
+		else if(enemy.X < 10 + shipW){
+
+			if(
+				(   
+					(10 + shipW >= enemy.X  && 10 + shipW <= enemy.X + enemy.W ) ||
+					(10 >= enemy.X  && 10 <= enemy.X + enemy.W ) 
+				) &&
+				(
+					(shipY + shipH >= enemy.Y  && shipY + shipH  <= enemy.Y + enemy.H ) ||
+					(shipY >= enemy.Y && shipY <= enemy.Y + enemy.H )
+				)	
+			){
+				ship.style.display = 'none';
+				boom(10 + shipW, shipY + shipW/2);
+				gameOver();
+			}			
+		}
+	}
+
+    //display the score after game over
+	function gameOver() {
+		isPlay = false;
+		startEnemy = false;
+		clearTimeout(enemyTimer);
+		statisticEl.innerHTML = '<div class="stat-con"><div class="title">'+statistic.status+'</div><div class="row"><span>Hits:</span><span>'+statistic.hits+'</span></div><div class="row"><span>Score:</span><span>'+statistic.score+'</span></div></div>';
+		statisticEl.style.display = 'block';
+	}
+
+	function boom (x,y) {
+		var el = document.createElement('div'); // creating element 
+		el.className = 'boom'; //assign class     
+		el.style.left = x + 'px'; //We put the item to the place of of coordinates obtained
+		el.style.top = y + 'px';
+		game.appendChild(el); //add an element to the map
+
+		//starts a timer that a second to remove an item from the map
+		setTimeout(function () {
+			game.removeChild(el);
+		},500);
+	}
+    
+    //creating the bullet from ship 
+	function createFireBall () {
+		this.el = document.createElement('div');
+		this.el.className = 'fire';
+		this.X = 10 + shipW;
+		this.Y = shipY + shipH/2;
+		this.W = 10;
+		this.H = 7;
+		this.el.style.top = this.Y + 'px';
+	}
+
+	function fire () {
+		if(fired) return false;
+		fired = true;
+		
+		var ball = new createFireBall();
+		game.appendChild(ball.el);
+		fireBalls.push(ball);
+
+		setTimeout(function () {
+			fired = false;
+		},300);
+	}
+
+	function removeBall (index) {
+		game.removeChild(fireBalls[index].el);
+		fireBalls.splice(index,1);
+	}
+
+	function ballLeaveMap (ball) {
+		if(ball.X > gameW) return true; 
+		return false;
+	}
+
+	function ballHit (ball) {
+		for (var i = 0, l = enemies.length; i < l; i++) {
+			if(ball.X + ball.W >= enemies[i].X && ball.Y >= enemies[i].Y  && ball.Y + ball.H  <= enemies[i].Y + enemies[i].H ) {
+
+				enemies[i].health -= 1;
+
+				if(enemies[i].health <=0){
+					statistic.hits += 1;
+					statistic.score += enemies[i].score;
+					enemiesDestroy += 1;
+					hitsEl.innerHTML = statistic.hits;
+					scoreEl.innerHTML = statistic.score;
+					if(enemiesDestroy > nextLevel) {
+						nextLevel += 10;
+						level += 1;
+						if(level > 15){
+							statistic.status = 'You Win!';
+							gameOver();
+						}
+					}
+					boom(enemies[i].X, enemies[i].Y);
+					removeEnemy(enemies[i],i);
+				}
+				
+				
+				return true;
+			}			
+		};
+		return false;
+	}
+
+	function moveFireBalls () {
+		for (var i = 0, l = fireBalls.length; i < l; i++) {
+			if(fireBalls[i]){ 
+				moveFireBall(fireBalls[i]);
+				if(ballHit(fireBalls[i]) || ballLeaveMap(fireBalls[i])){ 
+					removeBall (i);
+					i--;
+				}
+			}
+		};
+	}
+
+	function moveFireBall (ball) {
+		ball.X += 10;
+		ball.el.style.left = ball.X + 'px';
+	}
+
+	function loop () {
+		moveBg();
+		if(enemies.length) moveEnemies();
+		if(fireBtnPressed) fire();
+		if(fireBalls.length) moveFireBalls();
+		if(btnMoveShipPressed) moveShip();
+		if(isPlay) requestAnimationFrame(loop);
+	}
+
+	function startGame () {
+		isPlay = true;
+		startEnemy = true;
+		document.addEventListener('keydown', startAction, false);
+		document.addEventListener('keyup', stopAction, false);
+		createEnemyLoop();
+		requestAnimationFrame(loop);
+	}
+	startGame();
+	
+
+</script>
 </html>
