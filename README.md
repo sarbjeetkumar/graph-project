@@ -1,9 +1,9 @@
 # graph-project
-#####Game Name Sky wars 
+##### Game Name Sky wars 
 
 This sky wars game is based on old sky ship game where you have to save your ship in the sky from another flying ships and you have to shot them to save and get the score .
 
-####First i defined all my enemys in my css.
+#### First i defined all my enemys in my css.
 
  
             /*Creating all the enemy's*/
@@ -30,7 +30,7 @@ This sky wars game is based on old sky ship game where you have to save your shi
 Giving my enemys width and height 
 and which enemy is that refrence to the image for eg - enemy1.png
 
-####Defining the button and score and how many enemys are killed 
+#### Defining the button and score and how many enemys are killed 
 
  <body>
         <div id="control">
@@ -47,7 +47,7 @@ and which enemy is that refrence to the image for eg - enemy1.png
     
    To show how many enemys i have killed so far and if your game over then restart button to restart the game .
    
-   ####For selection of enemys.
+   #### For selection of enemys.
    
    	var enemiesTypes = {
 		1:{
@@ -86,7 +86,7 @@ and which enemy is that refrence to the image for eg - enemy1.png
 This is for selection of enemys randomly and how they are defined and which speed they come and health means how many fires they will take to die and how much score they give .
 
 
-######There is reference provided in the code .
+###### There is reference provided in the code .
 
 
 
